@@ -1,0 +1,19 @@
+\\clg.priv\ens\el\6\201029426\mes documents\visual studio 2013\Projects\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Laboratoire2-BD.exe.config
+\\clg.priv\ens\el\6\201029426\mes documents\visual studio 2013\Projects\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Laboratoire2-BD.exe
+\\clg.priv\ens\el\6\201029426\mes documents\visual studio 2013\Projects\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Laboratoire2-BD.pdb
+\\clg.priv\ens\el\6\201029426\mes documents\visual studio 2013\Projects\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2_BD.Properties.Resources.resources
+\\clg.priv\ens\el\6\201029426\mes documents\visual studio 2013\Projects\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.csproj.GenerateResource.Cache
+\\clg.priv\ens\el\6\201029426\mes documents\visual studio 2013\Projects\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.exe
+\\clg.priv\ens\el\6\201029426\mes documents\visual studio 2013\Projects\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.pdb
+\\clg.priv\ens\el\6\201029426\mes documents\visual studio 2013\Projects\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Oracle.DataAccess.dll
+\\clg.priv\ens\el\6\201029426\mes documents\visual studio 2013\Projects\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2_BD.GestionEmployes.resources
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Laboratoire2-BD.exe.config
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.exe
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.pdb
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Laboratoire2-BD.exe
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Laboratoire2-BD.pdb
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Oracle.DataAccess.dll
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.csprojResolveAssemblyReference.cache
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2_BD.GestionEmployes.resources
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2_BD.Properties.Resources.resources
+C:\Users\201029426\Desktop\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.csproj.GenerateResource.Cache
