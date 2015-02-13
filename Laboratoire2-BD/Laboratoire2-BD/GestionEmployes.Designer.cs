@@ -49,7 +49,7 @@
          this.TB_NumEmpMAJ = new System.Windows.Forms.TextBox();
          this.TB_SalaireMAJ = new System.Windows.Forms.TextBox();
          this.groupBox4 = new System.Windows.Forms.GroupBox();
-         this.label8 = new System.Windows.Forms.Label();
+         this.LB_NbreEmployé = new System.Windows.Forms.Label();
          this.BTN_MAJNbre = new System.Windows.Forms.Button();
          this.groupBox5 = new System.Windows.Forms.GroupBox();
          this.BTN_Rechercher = new System.Windows.Forms.Button();
@@ -57,7 +57,7 @@
          this.TB_NomSearch = new System.Windows.Forms.TextBox();
          this.BTN_Back = new System.Windows.Forms.Button();
          this.BTN_Next = new System.Windows.Forms.Button();
-         this.groupBox6 = new System.Windows.Forms.GroupBox();
+         this.GB_Employés = new System.Windows.Forms.GroupBox();
          this.LB_CodeDepList = new System.Windows.Forms.Label();
          this.LB_SalaireList = new System.Windows.Forms.Label();
          this.LB_PrenomList = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
          this.groupBox3.SuspendLayout();
          this.groupBox4.SuspendLayout();
          this.groupBox5.SuspendLayout();
-         this.groupBox6.SuspendLayout();
+         this.GB_Employés.SuspendLayout();
          this.groupBox7.SuspendLayout();
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
          this.panel1.SuspendLayout();
@@ -277,6 +277,7 @@
          this.TB_NumEmpMAJ.Name = "TB_NumEmpMAJ";
          this.TB_NumEmpMAJ.Size = new System.Drawing.Size(100, 20);
          this.TB_NumEmpMAJ.TabIndex = 10;
+         this.TB_NumEmpMAJ.TextChanged += new System.EventHandler(this.TB_NumEmpMAJ_TextChanged);
          this.TB_NumEmpMAJ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_NumEmpAjout_KeyPress);
          // 
          // TB_SalaireMAJ
@@ -286,11 +287,12 @@
          this.TB_SalaireMAJ.Name = "TB_SalaireMAJ";
          this.TB_SalaireMAJ.Size = new System.Drawing.Size(100, 20);
          this.TB_SalaireMAJ.TabIndex = 11;
+         this.TB_SalaireMAJ.TextChanged += new System.EventHandler(this.TB_SalaireMAJ_TextChanged);
          this.TB_SalaireMAJ.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_NumEmpAjout_KeyPress);
          // 
          // groupBox4
          // 
-         this.groupBox4.Controls.Add(this.label8);
+         this.groupBox4.Controls.Add(this.LB_NbreEmployé);
          this.groupBox4.Controls.Add(this.BTN_MAJNbre);
          this.groupBox4.Location = new System.Drawing.Point(11, 177);
          this.groupBox4.Name = "groupBox4";
@@ -299,14 +301,14 @@
          this.groupBox4.TabStop = false;
          this.groupBox4.Text = "Nombre d\'employés";
          // 
-         // label8
+         // LB_NbreEmployé
          // 
-         this.label8.AutoSize = true;
-         this.label8.Location = new System.Drawing.Point(20, 28);
-         this.label8.Name = "label8";
-         this.label8.Size = new System.Drawing.Size(61, 13);
-         this.label8.TabIndex = 2;
-         this.label8.Text = "X employés";
+         this.LB_NbreEmployé.AutoSize = true;
+         this.LB_NbreEmployé.Location = new System.Drawing.Point(20, 28);
+         this.LB_NbreEmployé.Name = "LB_NbreEmployé";
+         this.LB_NbreEmployé.Size = new System.Drawing.Size(61, 13);
+         this.LB_NbreEmployé.TabIndex = 2;
+         this.LB_NbreEmployé.Text = "X employés";
          // 
          // BTN_MAJNbre
          // 
@@ -378,26 +380,26 @@
          this.BTN_Next.UseVisualStyleBackColor = true;
          this.BTN_Next.Click += new System.EventHandler(this.BTN_Next_Click);
          // 
-         // groupBox6
+         // GB_Employés
          // 
-         this.groupBox6.Controls.Add(this.LB_CodeDepList);
-         this.groupBox6.Controls.Add(this.LB_SalaireList);
-         this.groupBox6.Controls.Add(this.LB_PrenomList);
-         this.groupBox6.Controls.Add(this.LB_NomList);
-         this.groupBox6.Controls.Add(this.LB_NumList);
-         this.groupBox6.Controls.Add(this.label11);
-         this.groupBox6.Controls.Add(this.BTN_Next);
-         this.groupBox6.Controls.Add(this.label12);
-         this.groupBox6.Controls.Add(this.BTN_Back);
-         this.groupBox6.Controls.Add(this.label13);
-         this.groupBox6.Controls.Add(this.label14);
-         this.groupBox6.Controls.Add(this.label15);
-         this.groupBox6.Location = new System.Drawing.Point(213, 300);
-         this.groupBox6.Name = "groupBox6";
-         this.groupBox6.Size = new System.Drawing.Size(190, 141);
-         this.groupBox6.TabIndex = 14;
-         this.groupBox6.TabStop = false;
-         this.groupBox6.Text = "Employés";
+         this.GB_Employés.Controls.Add(this.LB_CodeDepList);
+         this.GB_Employés.Controls.Add(this.LB_SalaireList);
+         this.GB_Employés.Controls.Add(this.LB_PrenomList);
+         this.GB_Employés.Controls.Add(this.LB_NomList);
+         this.GB_Employés.Controls.Add(this.LB_NumList);
+         this.GB_Employés.Controls.Add(this.label11);
+         this.GB_Employés.Controls.Add(this.BTN_Next);
+         this.GB_Employés.Controls.Add(this.label12);
+         this.GB_Employés.Controls.Add(this.BTN_Back);
+         this.GB_Employés.Controls.Add(this.label13);
+         this.GB_Employés.Controls.Add(this.label14);
+         this.GB_Employés.Controls.Add(this.label15);
+         this.GB_Employés.Location = new System.Drawing.Point(213, 300);
+         this.GB_Employés.Name = "GB_Employés";
+         this.GB_Employés.Size = new System.Drawing.Size(190, 141);
+         this.GB_Employés.TabIndex = 14;
+         this.GB_Employés.TabStop = false;
+         this.GB_Employés.Text = "Employés";
          // 
          // LB_CodeDepList
          // 
@@ -522,7 +524,7 @@
          this.panel1.Controls.Add(this.groupBox2);
          this.panel1.Controls.Add(this.groupBox7);
          this.panel1.Controls.Add(this.groupBox3);
-         this.panel1.Controls.Add(this.groupBox6);
+         this.panel1.Controls.Add(this.GB_Employés);
          this.panel1.Controls.Add(this.groupBox4);
          this.panel1.Controls.Add(this.groupBox5);
          this.panel1.Location = new System.Drawing.Point(2, 25);
@@ -581,8 +583,8 @@
          this.groupBox4.PerformLayout();
          this.groupBox5.ResumeLayout(false);
          this.groupBox5.PerformLayout();
-         this.groupBox6.ResumeLayout(false);
-         this.groupBox6.PerformLayout();
+         this.GB_Employés.ResumeLayout(false);
+         this.GB_Employés.PerformLayout();
          this.groupBox7.ResumeLayout(false);
          ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
          this.panel1.ResumeLayout(false);
@@ -614,7 +616,7 @@
       private System.Windows.Forms.TextBox TB_NumEmpMAJ;
       private System.Windows.Forms.TextBox TB_SalaireMAJ;
       private System.Windows.Forms.GroupBox groupBox4;
-      private System.Windows.Forms.Label label8;
+      private System.Windows.Forms.Label LB_NbreEmployé;
       private System.Windows.Forms.Button BTN_MAJNbre;
       private System.Windows.Forms.GroupBox groupBox5;
       private System.Windows.Forms.Button BTN_Rechercher;
@@ -622,7 +624,7 @@
       private System.Windows.Forms.TextBox TB_NomSearch;
       private System.Windows.Forms.Button BTN_Back;
       private System.Windows.Forms.Button BTN_Next;
-      private System.Windows.Forms.GroupBox groupBox6;
+      private System.Windows.Forms.GroupBox GB_Employés;
       private System.Windows.Forms.Label LB_CodeDepList;
       private System.Windows.Forms.Label LB_SalaireList;
       private System.Windows.Forms.Label LB_PrenomList;

@@ -37,7 +37,12 @@ namespace Laboratoire2_BD
       private void Form1_Load(object sender, EventArgs e)
       {
          Connection();
-         RemplirComboBoxCodeDep();
+         if(connection)
+         {
+            RemplirComboBoxCodeDep();
+            AfficherNbreEmploye();
+         }
+         
          BTN_Ajouter.Enabled = false;
          BTN_Back.Enabled = false;
          BTN_Next.Enabled = false;
@@ -223,20 +228,64 @@ namespace Laboratoire2_BD
       {
          BTN_Ajouter.Enabled = (TB_NomAjout.Text != "" && TB_PrenomAjout.Text != "" && TB_SalaireAjout.Text != "" && TB_CodeDepAjout.Text != "");
       }
+
 //////////////////////////////////////////////////////////////////////////////
 //    METTRE A JOUR LE SALAIRE
 //////////////////////////////////////////////////////////////////////////////
       private void BTN_MAJSalaire_Click(object sender, EventArgs e)
       {
-
+         if(MAJSalaire())
+         {
+            MessageBox.Show("Mise à jour reussite");
+            TB_SalaireMAJ.Text = "";
+            TB_NumEmpMAJ.Text = "";
+         }
+         else
+         {
+            MessageBox.Show("Mise à jour non reussite");
+         }
       }
-
-      private void MAJSalaire()
+      private void UpdateControleMAJ()
       {
-         OracleCommand oraliste = new OracleCommand("GESTIONEMPLOYES", oraconnPrincipale);
-         oraliste.CommandText = "GESTIONEMPLOYES.MAJSALAIRE";
-         oraliste.CommandType = CommandType.StoredProcedure;
+         BTN_MAJSalaire.Enabled = (TB_SalaireMAJ.Text != "" && TB_NumEmpMAJ.Text != "");
       }
+      private void TB_NumEmpMAJ_TextChanged(object sender, EventArgs e)
+      {
+         UpdateControleMAJ();
+      }
+      private void TB_SalaireMAJ_TextChanged(object sender, EventArgs e)
+      {
+         UpdateControleMAJ();
+      }
+      private bool MAJSalaire()
+      {
+         bool reussi = true;
+         try
+         {
+            OracleCommand oraliste = new OracleCommand("GESTIONEMPLOYES", oraconnPrincipale);
+            oraliste.CommandText = "GESTIONEMPLOYES.MAJSALAIRE";
+            oraliste.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter orapamNom = new OracleParameter("Num", OracleDbType.Int32);
+            orapamNom.Direction = ParameterDirection.Input;
+            orapamNom.Value = TB_NumEmpMAJ.Text;
+            oraliste.Parameters.Add(orapamNom);
+
+            OracleParameter orapamSalaire = new OracleParameter("Salaire", OracleDbType.Int32, 6);
+            orapamSalaire.Direction = ParameterDirection.Input;
+            orapamSalaire.Value = TB_SalaireMAJ.Text;
+            oraliste.Parameters.Add(orapamSalaire);
+
+            oraliste.ExecuteNonQuery();
+         }
+         catch(OracleException ex)
+         {
+            SwitchException(ex);
+            reussi = false; 
+         }
+         return reussi; 
+      }
+      
 //////////////////////////////////////////////////////////////////////////////
 //    LISTER LES EMPLOYÉS
 //////////////////////////////////////////////////////////////////////////////
@@ -290,15 +339,40 @@ namespace Laboratoire2_BD
 //////////////////////////////////////////////////////////////////////////////
       private void BTN_MAJNbre_Click(object sender, EventArgs e)
       {
-
+         if (AfficherNbreEmploye())
+         {
+            MessageBox.Show("Actualisation reussite");
+         }
+         else
+         {
+            MessageBox.Show("Actualisation non reussite");
+         }
       }
-
-      private void AfficherNbreEmploye()
+      private bool AfficherNbreEmploye()
       {
-         OracleCommand oraliste = new OracleCommand("GESTIONEMPLOYES", oraconnPrincipale);
-         oraliste.CommandText = "GESTIONEMPLOYES.NBREEMPLOYE";
-         oraliste.CommandType = CommandType.StoredProcedure;
+         bool reussi = true;
+         try
+         {
+            OracleCommand oraliste = new OracleCommand("GESTIONEMPLOYES", oraconnPrincipale);
+            oraliste.CommandText = "GESTIONEMPLOYES.NBREEMPLOYE";
+            oraliste.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter oraNombre = new OracleParameter("Nombre", OracleDbType.Int32);
+            oraNombre.Direction = ParameterDirection.ReturnValue;
+            oraliste.Parameters.Add(oraNombre);
+
+            oraliste.ExecuteNonQuery();
+
+            LB_NbreEmployé.Text = oraNombre.Value.ToString() + " employés "; 
+         }
+         catch(OracleException ex)
+         {
+            SwitchException(ex);
+            reussi = false;
+         }
+         return reussi;
       }
+
 //////////////////////////////////////////////////////////////////////////////
 //    RECHERCHER DES EMPLOYÉS
 //////////////////////////////////////////////////////////////////////////////
@@ -427,10 +501,6 @@ namespace Laboratoire2_BD
 
          MessageBox.Show(DescriptionErreur, "Erreur #" + ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
       }
-
-
-
-
  
    }
 }
