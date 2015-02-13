@@ -283,7 +283,7 @@
          // TB_SalaireMAJ
          // 
          this.TB_SalaireMAJ.Location = new System.Drawing.Point(70, 45);
-         this.TB_SalaireMAJ.MaxLength = 8;
+         this.TB_SalaireMAJ.MaxLength = 6;
          this.TB_SalaireMAJ.Name = "TB_SalaireMAJ";
          this.TB_SalaireMAJ.Size = new System.Drawing.Size(100, 20);
          this.TB_SalaireMAJ.TabIndex = 11;
@@ -358,6 +358,7 @@
          this.TB_NomSearch.Name = "TB_NomSearch";
          this.TB_NomSearch.Size = new System.Drawing.Size(100, 20);
          this.TB_NomSearch.TabIndex = 13;
+         this.TB_NomSearch.TextChanged += new System.EventHandler(this.TB_NomSearch_TextChanged);
          this.TB_NomSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TB_NomAjout_KeyPress);
          // 
          // BTN_Back

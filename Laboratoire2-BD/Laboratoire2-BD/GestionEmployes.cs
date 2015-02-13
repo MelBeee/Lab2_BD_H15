@@ -113,6 +113,7 @@ namespace Laboratoire2_BD
          {
             MessageBox.Show("Suppression reussite");
             TB_NumEmpDelete.Text = "";
+            AfficherNbreEmploye();
          }
          else
          {
@@ -163,6 +164,7 @@ namespace Laboratoire2_BD
             TB_PrenomAjout.Text = "";
             TB_SalaireAjout.Text = "";
             TB_CodeDepAjout.Text = "";
+            AfficherNbreEmploye();
          }
          else
          {
@@ -315,25 +317,33 @@ namespace Laboratoire2_BD
       }
       private void BTN_Next_Click(object sender, EventArgs e)
       {
-
+         BTN_Back.Enabled = true;
+         this.BindingContext[monDataSet, "Employés"].Position += 1;
+         if (this.BindingContext[monDataSet, "Employés"].Position.ToString() == (this.BindingContext[monDataSet, "Employés"].Count - 1).ToString())
+         {
+            BTN_Next.Enabled = false;
+         }
       }
-
       private void BTN_Back_Click(object sender, EventArgs e)
       {
-
+         BTN_Next.Enabled = true;
+         this.BindingContext[monDataSet, "Employés"].Position -= 1;
+         if (this.BindingContext[monDataSet, "Employés"].Position.ToString() == "0")
+         {
+            BTN_Back.Enabled = false;
+         }
       }
-
       private void CB_CodeDepLister_SelectedIndexChanged(object sender, EventArgs e)
       {
 
       }
-
       private void Lister()
       {
          OracleCommand oraliste = new OracleCommand("GESTIONEMPLOYES", oraconnPrincipale);
          oraliste.CommandText = "GESTIONEMPLOYES.LISTER";
          oraliste.CommandType = CommandType.StoredProcedure;
       }
+
 //////////////////////////////////////////////////////////////////////////////
 //    NOMBRE D'EMPLOYÉS
 //////////////////////////////////////////////////////////////////////////////
@@ -378,14 +388,91 @@ namespace Laboratoire2_BD
 //////////////////////////////////////////////////////////////////////////////
       private void BTN_Rechercher_Click(object sender, EventArgs e)
       {
-
+         if(Rechercher())
+         {
+            MessageBox.Show("Recherche completé");
+            TB_NomSearch.Text = "";
+         }
+         else
+         {
+            MessageBox.Show("Recherche non completé");
+         }
       }
-      
-      private void Rechercher()
+      private void UpdateSearch()
       {
-         OracleCommand oraliste = new OracleCommand("GESTIONEMPLOYES", oraconnPrincipale);
-         oraliste.CommandText = "GESTIONEMPLOYES.RECHERCHER";
-         oraliste.CommandType = CommandType.StoredProcedure;
+         BTN_Rechercher.Enabled = TB_NomSearch.Text != "";
+      }
+      private void TB_NomSearch_TextChanged(object sender, EventArgs e)
+      {
+         UpdateSearch();
+      }
+      private bool Rechercher()
+      {
+         BTN_Back.Enabled = false; 
+         bool reussi = true;
+         try
+         {
+            OracleCommand oraliste = new OracleCommand("GESTIONEMPLOYES", oraconnPrincipale);
+            oraliste.CommandText = "GESTIONEMPLOYES.RECHERCHER";
+            oraliste.CommandType = CommandType.StoredProcedure;
+
+            OracleParameter OrapameResultat = new OracleParameter("Resultat", OracleDbType.RefCursor);
+            OrapameResultat.Direction = ParameterDirection.ReturnValue;
+            oraliste.Parameters.Add(OrapameResultat);
+
+            // déclaration du paramètre en IN
+            OracleParameter OrapamNom = new  OracleParameter("Nom", OracleDbType.Varchar2, 30);
+            OrapamNom.Value = TB_NomSearch.Text;
+            OrapamNom.Direction = ParameterDirection.Input;
+            oraliste.Parameters.Add(OrapamNom);
+
+            OracleDataAdapter orAdater = new OracleDataAdapter(oraliste);
+            if (monDataSet.Tables.Contains("Employés"))
+            {
+               monDataSet.Tables["Employés"].Clear();
+            }
+            orAdater.Fill(monDataSet, "Employés");
+            oraliste.Dispose();
+            
+            if(this.BindingContext[monDataSet, "Employés"].Count > 0)
+            {
+               GB_Employés.Text = "Employé (" + this.BindingContext[monDataSet, "Employés"].Count.ToString() + " résultats";
+               InitLabel();
+            }
+            else
+            {
+               MessageBox.Show("La table ne contient aucune valeur");
+               ReinitialiseLabel();
+            }
+            if(this.BindingContext[monDataSet, "Employés"].Count > 1)
+            {
+               BTN_Next.Enabled = true; 
+            }
+         }
+         catch(OracleException ex)
+         {
+            SwitchException(ex);
+            reussi = false; 
+         }
+         return reussi;
+      }
+      private void InitLabel()
+      {
+         LB_NumList.DataBindings.Add("Text", monDataSet, "Employesclg.numemp");
+         LB_NomList.DataBindings.Add("Text", monDataSet, "Employesclg.nom");
+         LB_PrenomList.DataBindings.Add("Text", monDataSet, "Employesclg.Prenom");
+         LB_SalaireList.DataBindings.Add("Text", monDataSet, "Employesclg.Salaire");
+         LB_CodeDepList.DataBindings.Add("Text", monDataSet, "Employesclg.CodeDep");
+
+         LB_SalaireList.Text += "$";
+      }
+      private void ReinitialiseLabel()
+      {
+         LB_NumList.DataBindings.Clear();
+         LB_NomList.DataBindings.Clear();
+         LB_PrenomList.DataBindings.Clear();
+         LB_SalaireList.DataBindings.Clear();
+         LB_CodeDepList.DataBindings.Clear();
       }
 
 //////////////////////////////////////////////////////////////////////////////
@@ -501,6 +588,8 @@ namespace Laboratoire2_BD
 
          MessageBox.Show(DescriptionErreur, "Erreur #" + ex.Number.ToString(), MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
       }
+
+
  
    }
 }
