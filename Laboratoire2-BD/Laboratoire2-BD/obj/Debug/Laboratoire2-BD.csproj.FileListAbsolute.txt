@@ -27,3 +27,13 @@ C:\Users\201029426\Desktop\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\ob
 C:\Users\201029426\Desktop\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2_BD.GestionEmployes.resources
 C:\Users\201029426\Desktop\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2_BD.Properties.Resources.resources
 C:\Users\201029426\Desktop\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.csproj.GenerateResource.Cache
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Laboratoire2-BD.exe.config
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.exe
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.pdb
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Laboratoire2-BD.exe
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Laboratoire2-BD.pdb
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\bin\Debug\Oracle.DataAccess.dll
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.csprojResolveAssemblyReference.cache
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2_BD.GestionEmployes.resources
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2_BD.Properties.Resources.resources
+C:\Users\Mélissa\Documents\GitHub\Lab2_BD_H15\Laboratoire2-BD\Laboratoire2-BD\obj\Debug\Laboratoire2-BD.csproj.GenerateResource.Cache
