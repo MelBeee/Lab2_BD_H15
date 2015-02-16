@@ -394,7 +394,7 @@ namespace Laboratoire2_BD
                 oraliste.Dispose();
                 if (this.BindingContext[monDataSet, "Lister"].Count > 0)
                 {
-                    GB_Employés.Text = "Employé (" + this.BindingContext[monDataSet, "Lister"].Count.ToString() + " résultats";
+                    GB_Employés.Text = "Employé (" + this.BindingContext[monDataSet, "Lister"].Count.ToString() + " résultats)";
                     InitLabelLister();
                 }
                 else
@@ -457,7 +457,7 @@ namespace Laboratoire2_BD
                 oraNombre.Direction = ParameterDirection.ReturnValue;
                 oraliste.Parameters.Add(oraNombre);
 
-                oraliste.ExecuteNonQuery();
+                oraliste.ExecuteScalar();
 
                 LB_NbreEmployé.Text = oraNombre.Value.ToString() + " employés ";
             }
@@ -526,7 +526,7 @@ namespace Laboratoire2_BD
 
                 if (this.BindingContext[monDataSet, "Employés"].Count > 0)
                 {
-                    GB_Employés.Text = "Employé (" + this.BindingContext[monDataSet, "Employés"].Count.ToString() + " résultats";
+                    GB_Employés.Text = "Employé (" + this.BindingContext[monDataSet, "Employés"].Count.ToString() + " résultats)";
                     InitLabelRechercher();
                 }
                 else
